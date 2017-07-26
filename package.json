@@ -3,6 +3,7 @@
     "node": ">= 6.9.1"
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "fs": "0.0.1-security",
     "koa": "^2.0.0-alpha.7"
