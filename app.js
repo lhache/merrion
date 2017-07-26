@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
 app.post('/add', function (req, res) {
   fs.appendFile(__dirname + "/" + "db", appendNewLine('data to append'), function (err) {
     if (err) throw err;
-    res.send('saved')
+    res.sendFile(__dirname + '/public/event-invitation.jpg');
   })
 })
 
