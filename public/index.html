@@ -2,11 +2,48 @@
 <head></head>
 <body>
 
-<form action="/add" method="POST">
-  <input type="text" placeholder="First name" />
-  <button type="submit">Get my reservation</button>
-</form>
+  <form action="/add" method="POST" class="merrion-form">
+    <img src="event-brochure.jpg" class="merrion-form-img"/>
+    <input type="text" placeholder="First name" class="merrion-form-element merrion-input"/>
+    <input type="text" placeholder="Last name"  class="merrion-form-element merrion-input"/>
+    <input type="email" placeholder="Email address"  class="merrion-form-element merrion-input"/>
+    <button type="submit" class="merrion-form-element merrion-button">Get my reservation</button>
+  </form>
 
+  <style>
+    body {
+      background-color: #F5F5F5;
+      padding: 20px;
+    }
 
+    .merrion-form {
+      width: 100%;
+      height: 100%;
+    }
+
+    .merrion-form-img {
+      max-width: 100%;
+    }
+
+    .merrion-form-element {
+      display: block;
+      margin: 5px auto;
+      padding: 5px;
+      height: 30px;
+      width: 300px;
+      font-size: 14px;
+      text-align: center;
+    }
+    .merrion-input {
+      border: 1px solid black;
+      color: #666;
+    }
+    .merrion-button {
+      border: 1px solid black;
+      background-color: black;
+      color: white;
+      height: 35px;
+    }
+  </style>
 </body>
 </html
