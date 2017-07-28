@@ -5,7 +5,9 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "knex": "^0.13.0",
+    "pg": "^7.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
