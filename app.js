@@ -4,6 +4,7 @@ var fs = require("fs");
 const { Client } = require('pg')
 
 var app = express();
+const nodemailer = require('nodemailer');
 
 const appendNewLine = line => `${line}\n`
 
@@ -33,6 +34,36 @@ app.post('/add', function (req, res) {
     [data.firstName, data.lastName, data.email]);
 
   const line = `${data.firstName},${data.lastName},${data.email}`
+
+  let transporter = nodemailer.createTransport({
+    host: 'ssl0.ovh.net',
+    port: 465,
+    secure: true,
+    auth: {
+        user: 'bonjour@brandconnection.fr',
+        pass: 'bonjourbonjour'
+    }
+});
+
+// setup email data with unicode symbols
+let mailOptions = {
+    from: '"Brand Connection" <bonjour@brandconnection.fr>',
+    to: data.email,
+    subject: 'You are invited ✔',
+    text: 'You are invited!',
+    html: '<img src="https://afternoon-beyond-18819.herokuapp.com/event-invitation.jpg" alt="Invitation" />'
+};
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+        return console.log(error);
+    }
+    console.log('Message %s sent: %s', info.messageId, info.response);
+});
+
+
+
   fs.appendFile(__dirname + "/" + "db", appendNewLine(line), function (err) {
     if (err) throw err;
     res.sendFile(__dirname + '/public/event-invitation.jpg');
