@@ -50,7 +50,10 @@ app.post('/add', function (req, res) {
       to: data.email,
       subject: 'You are invited ✔',
       text: 'You are invited!',
-      html: '<img src="https://afternoon-beyond-18819.herokuapp.com/event-invitation.jpg" alt="Invitation" />'
+      html: '<img src="https://afternoon-beyond-18819.herokuapp.com/event-invitation.jpg" alt="Invitation" />',
+      attachments: [
+        { path: 'https://afternoon-beyond-18819.herokuapp.com/event-invitation.jpg' }
+      ]
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
