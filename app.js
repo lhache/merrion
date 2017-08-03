@@ -45,29 +45,20 @@ app.post('/add', function (req, res) {
     }
 });
 
-// setup email data with unicode symbols
-let mailOptions = {
-    from: '"Brand Connection" <bonjour@brandconnection.fr>',
-    to: data.email,
-    subject: 'You are invited ✔',
-    text: 'You are invited!',
-    html: '<img src="https://afternoon-beyond-18819.herokuapp.com/event-invitation.jpg" alt="Invitation" />'
-};
+  let mailOptions = {
+      from: '"Brand Connection" <bonjour@brandconnection.fr>',
+      to: data.email,
+      subject: 'You are invited ✔',
+      text: 'You are invited!',
+      html: '<img src="https://afternoon-beyond-18819.herokuapp.com/event-invitation.jpg" alt="Invitation" />'
+  };
 
-// send mail with defined transport object
-transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-        return console.log(error);
-    }
-    console.log('Message %s sent: %s', info.messageId, info.response);
-});
-
-
-
-  fs.appendFile(__dirname + "/" + "db", appendNewLine(line), function (err) {
-    if (err) throw err;
-    res.sendFile(__dirname + '/public/event-invitation.jpg');
-  })
+  transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+          return console.log(error);
+      }
+      res.sendFile(__dirname + '/public/event-invitation.jpg');
+  });
 })
 
 var server = app.listen(app.get('port'), function () {
