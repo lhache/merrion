@@ -58,7 +58,7 @@ app.post('/add', function (req, res) {
 
   transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-          return console.log(error);
+          console.log(error);
       }
       res.sendFile(__dirname + '/public/event-invitation.jpg');
   });
