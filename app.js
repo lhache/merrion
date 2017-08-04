@@ -18,7 +18,7 @@ app.post('/add', function (req, res) {
 
   writeDB(data)
   sendEmail(data)
-
+  
   res.sendFile(__dirname + '/public/event-invitation.jpg');
 })
 
