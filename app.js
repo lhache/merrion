@@ -49,8 +49,14 @@ app.post('/add', function (req, res) {
       from: '"Brand Connection" <bonjour@brandconnection.fr>',
       to: data.email,
       subject: 'You are invited ✔',
-      text: 'You are invited!',
-      html: '<img src="https://afternoon-beyond-18819.herokuapp.com/event-invitation.jpg" alt="Invitation" />',
+      text: `
+Congratulations ${data.firstName},
+
+you are now registered on the V.I.P guests list for the sale at the Merrion Hotel on September, 16th 2017.
+
+We are looking forward to seeing you!
+
+Brand Connection Team`,
       attachments: [
         { path: 'https://afternoon-beyond-18819.herokuapp.com/event-invitation.jpg' }
       ]
