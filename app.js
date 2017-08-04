@@ -18,8 +18,8 @@ app.post('/add', function (req, res) {
 
   writeDB(data)
   sendEmail(data)
-  
-  res.sendFile(__dirname + '/public/event-invitation.jpg');
+
+  res.send('<img style="width: 100%" src="/event-invitation.jpg" />')
 })
 
 var server = app.listen(app.get('port'), function () {
