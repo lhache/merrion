@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+  const nodemailer = require('nodemailer');
 
 const settings = {
   host: 'ssl0.ovh.net',
@@ -20,7 +20,7 @@ module.exports = function sendEmail(data) {
       text: `
   Congratulations ${data.firstName},
 
-  you are now registered on the V.I.P guests list for the sale at the Merrion Hotel on September, 16th 2017.
+  you are now registered on the V.I.P guests list for the sale on September, 16th 2017, 24 Upper Merrion Street in Dublin.
 
   We are looking forward to seeing you!
 
